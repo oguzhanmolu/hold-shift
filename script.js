@@ -4,7 +4,7 @@ const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 let LastChecked;
 console.log(checkboxes);
 
-// Check event listener
+// Check function
 function handleCheckbox(e) {
   let inBetween = false;
   if (e.shiftKey && this.checked) {
@@ -20,12 +20,14 @@ function handleCheckbox(e) {
   LastChecked = this;
 }
 
-// Uncheck all
+// Uncheck all event listener
 window.addEventListener('keydown', (e) => {
   if (e.key == 'Escape')
     checkboxes.forEach((checkbox) => (checkbox.checked = false));
+  console.log('Checkboxes Cleared!');
 });
 
+// Check event listener
 checkboxes.forEach((checkbox) =>
   checkbox.addEventListener('click', handleCheckbox)
 );
